@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { Icon, Menu, Table } from 'semantic-ui-react'
-import JobSeekerService from "../services/jobSeekerService";
+import CityService from "../services/cityService";
 
 
-export default function JobSeekerList() {
-  const [jobSeekers, setjobSeekers] = useState([])
+export default function CityList() {
+  const [cities, setCities] = useState([])
 
   useEffect(() => {
-    let jobSeekerService = new JobSeekerService()
-    jobSeekerService.getJobSeekers().then(result => setjobSeekers(result.data.data))
+    let cityService = new CityService()
+    cityService.getCities().then(result => setCities(result.data.data))
   }, [])
 
   return (
@@ -17,19 +17,13 @@ export default function JobSeekerList() {
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Email</Table.HeaderCell>
-            <Table.HeaderCell>Nationality Id</Table.HeaderCell>
-            <Table.HeaderCell>Year of Birth</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
-          {jobSeekers.map((jobSeeker) => (
+          {cities.map((city) => (
             <Table.Row >
-              <Table.Cell>{jobSeeker.firstName} {jobSeeker.lastName}</Table.Cell>
-              <Table.Cell>{jobSeeker.email}</Table.Cell>
-              <Table.Cell>{jobSeeker.nationalityId}</Table.Cell>
-              <Table.Cell>{jobSeeker.yearOfBirth}</Table.Cell>
+              <Table.Cell>{city.name}</Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
