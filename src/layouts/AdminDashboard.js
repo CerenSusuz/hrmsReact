@@ -6,7 +6,7 @@ import JobSeekerList from '../pages/JobSeekerList'
 export default function AdminDashboard() {
     return (
         <div>
-            <Grid>
+            <Grid className="admin">
                 <Grid.Row>
                     <Grid.Column width={4}>
                         <Menu text vertical>
@@ -23,7 +23,6 @@ export default function AdminDashboard() {
                         </Menu>
                     </Grid.Column>
                     <Grid.Column width={10}>
-                        <Route exact path="/" component={AdminDashboard} />
                         <Route exact path="/jobSeekers" component={JobSeekerList} />
                     </Grid.Column>
                 </Grid.Row>

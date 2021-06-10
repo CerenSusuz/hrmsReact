@@ -24,9 +24,9 @@ export default function Navi() {
                     <Menu.Item active>
                         Home
                 </Menu.Item>
-                    <Menu.Item >Find a job &nbsp;<Icon name='search' /></Menu.Item>
-                    <Menu.Item >Publish Announcement</Menu.Item>
-                    <Menu.Item >Careers</Menu.Item>
+                    <Menu.Item link='/'>Find a job &nbsp;<Icon name='search' /></Menu.Item>
+                    <Menu.Item link='/'>Publish Announcement</Menu.Item>
+                    <Menu.Item link='/admin'>Admin</Menu.Item>
 
                     <Menu.Menu position='right'>
                         {isAuthenticated

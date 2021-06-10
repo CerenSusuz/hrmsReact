@@ -4,8 +4,9 @@ import { Dropdown, Image, Menu } from 'semantic-ui-react'
 export default function SignedIn(props) {
     return (
         <div>
-            <Image avatar src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Crystal_Clear_kdm_user_female.svg" />
+            
             <Menu.Item>
+            <Image avatar src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Crystal_Clear_kdm_user_female.svg" />
                 <Dropdown pointing="top right" text="Ceren Susuz">
                     <Dropdown.Menu>
                         <Dropdown.Item text="Infos" icon="info" />

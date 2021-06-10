@@ -11,7 +11,7 @@ export default function Footer() {
     return (
         <div>
             <Segment inverted vertical style={{ padding: '5em 0em' }}>
-                <Container>
+
                     <Grid divided inverted stackable>
                         <Grid.Row>
                             <Grid.Column width={3}>
@@ -42,7 +42,7 @@ export default function Footer() {
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
-                </Container>
+
             </Segment>
         </div>
     )
