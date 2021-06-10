@@ -1,5 +1,12 @@
+# HRMS
 
-<a href="https://lucid.app/documents/embeddedchart/b260afc1-a33b-46ec-bd4a-ad9fb1d2f12a?invitationId=inv_10712be9-1a94-472f-ae68-bd7f58d209b7"> UML DIAGRAM
+İstihdam ve Kariyer Platformu
+
+<img src="https://github.com/CerenSusuz/HRMS/blob/main/hrms.jpg">
+
+-------------------------------------------------
+
+<img src="https://github.com/CerenSusuz/HRMS/blob/main/hrms.jpg"> UML component diagram
 
 # Getting Started with Create React App
 
