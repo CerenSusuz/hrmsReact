@@ -6,7 +6,7 @@
 
 -------------------------------------------------
 
-<img src="https://github.com/CerenSusuz/HRMS/blob/main/hrms.jpg"> UML component diagram
+<img src="https://github.com/CerenSusuz/hrmsReact/blob/main/src/assets/images/uml.png"> UML component diagram
 
 # Getting Started with Create React App
 
