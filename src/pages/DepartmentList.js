@@ -8,7 +8,7 @@ export default function DepartmentList() {
 
   useEffect(() => {
     let departmentService = new DepartmentService()
-    departmentService.getDepartments.then(result => setDepartments(result.data.data))
+    departmentService.getDepartments().then(result => setDepartments(result.data.data))
   }, [])
 
   return (
@@ -16,7 +16,7 @@ export default function DepartmentList() {
       <Table celled>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Departments</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 

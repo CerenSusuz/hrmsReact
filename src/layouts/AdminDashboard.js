@@ -1,9 +1,11 @@
-import { Grid, Menu, Dropdown } from 'semantic-ui-react'
+import { Grid, Menu } from 'semantic-ui-react'
 import JobSeekerList from '../pages/JobSeekerList'
+import CityList from '../pages/CityList'
+import DepartmentList from '../pages/DepartmentList'
 import React, { useState, useEffect } from 'react'
 import CityService from "../services/cityService";
 import DepartmentService from "../services/departmentService";
-import { Link } from 'react-router-dom';
+
 
 export default function AdminDashboard() {
     const [cities, setCities] = useState([])
@@ -34,6 +36,8 @@ export default function AdminDashboard() {
                     </Grid.Column>
                     <Grid.Column width={10}>
                         <JobSeekerList />
+                        <CityList/>
+                        <DepartmentList/>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>

@@ -16,7 +16,7 @@ export default function CityList() {
       <Table celled>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Name</Table.HeaderCell>
+            <Table.HeaderCell>Cities</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
