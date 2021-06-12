@@ -13,7 +13,7 @@ export default function DepartmentList() {
 
   return (
     <div>
-      <Table celled>
+      <Table celled style={{ margin: '1em 0em' }}>
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell>Departments</Table.HeaderCell>

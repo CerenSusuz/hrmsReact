@@ -30,7 +30,7 @@ export default function Footer() {
                         <Grid.Column width={8}>
                             <Header as='h4' inverted> HEY! </Header>
                             <p> Get the job/employee! </p>
-                            <p> Copyright &copy;All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/ceren-s-2a70841b3/" target="_blank">Ceren SUSUZ</a></p>
+                            <p> Copyright &copy;All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/ceren-susuz-2a70841b3/" rel="noreferrer" target="_blank">Ceren SUSUZ</a></p>
                         </Grid.Column>
                     </Grid.Row>
                 </Grid>
