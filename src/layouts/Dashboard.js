@@ -15,6 +15,7 @@ import CityJobList from "../pages/CityJobList";
 import EmployerRegister from "../pages/Register/EmployerRegister";
 import JobSeekerRegister from "../pages/Register/JobSeekerRegister";
 import HrmsRegister from "../pages/Register/HrmsRegister";
+import CompanyNameJobList from "../pages/CompanyNameJobList";
 
 export default function Dashboard() {
     return (
@@ -34,6 +35,8 @@ export default function Dashboard() {
                 <Route path="/employerRegister" component={EmployerRegister} />
                 <Route path="/jobSeekerRegister" component={JobSeekerRegister} />
                 <Route path="/hrmsRegister" component={HrmsRegister} />
+                <Route path="/inCompnayNameJobs" component={CompanyNameJobList} />
+
             </Container>
         </div>
     );

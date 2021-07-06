@@ -12,10 +12,12 @@ import {
     Segment,
     Dropdown,
 } from 'semantic-ui-react'
+import EmployerService from '../services/employerService';
 
 export default function Homepage() {
     const [cities, setCities] = useState([])
     const [departments, setDepartments] = useState([])
+    const [employers, setemployers] = useState([])
 
     useEffect(() => {
         let cityService = new CityService()
@@ -25,6 +27,11 @@ export default function Homepage() {
     useEffect(() => {
         let departmentService = new DepartmentService()
         departmentService.getDepartments().then(result => setDepartments(result.data.data))
+    }, [])
+
+    useEffect(() => {
+        let employerService = new EmployerService()
+        employerService.getEmployers().then(result => setemployers(result.data.data))
     }, [])
 
     return (
@@ -46,6 +53,17 @@ export default function Homepage() {
                                 <Link to={`/activeAnnouncements`}>
                                     Aktif İlanlar
                                 </Link>
+                            </Menu.Item>
+                            <Menu.Item >
+                                <Dropdown pointing="top right" text="Tüm Firmalar">
+                                    <Dropdown.Menu >
+                                        {employers.map((employer) => (
+                                            <Dropdown.Item key={employer.id}>
+                                                {employer.companyName}
+                                            </Dropdown.Item>
+                                        ))}
+                                    </Dropdown.Menu>
+                                </Dropdown>
                             </Menu.Item>
                             <Menu.Item>
                                 <Dropdown pointing="top right" text="Şehir Seç">
