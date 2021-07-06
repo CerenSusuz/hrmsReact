@@ -5,3 +5,8 @@
 .admin{
   background-color: rgb(221, 215, 228);
 }
+
+.overflow{
+  overflow-x: scroll;
+  overflow-y: hidden;
+}

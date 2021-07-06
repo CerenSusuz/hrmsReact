@@ -1,33 +1,15 @@
 import './App.css';
-import React, { useState } from 'react';
-import { useHistory } from 'react-router';
+import React from 'react';
 import 'semantic-ui-css/semantic.min.css'
 import Footer from './layouts/Footer';
 import Navi from './layouts/Navi';
-import AdminDashboard from './layouts/AdminDashboard';
-import Homepage from './layouts/Homepage';
-import { Container } from 'semantic-ui-react';
+import Dashboard from './layouts/Dashboard';
 
 function App() {
-  const [isAdmin, setIsAdmin] = useState(true)
-  const history = useHistory()
-
-  function handleHomepage() {
-    setIsAdmin(false)
-    history.push("/")
-  }
-
-  function handleAdmin() {
-    setIsAdmin(true)
-  }
   return (
     <div className="App">
       <Navi />
-      <Container position='right'>
-        {isAdmin
-          ? <AdminDashboard signOut={handleAdmin} />
-          : <Homepage signIn={handleHomepage} />}
-      </Container>
+        <Dashboard />
       <Footer />
     </div>
   );
