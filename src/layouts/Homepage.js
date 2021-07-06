@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import CityService from "../services/cityService";
 import DepartmentService from "../services/departmentService";
+import { Link } from 'react-router-dom';
+
 import {
     Button,
     Icon,
@@ -8,7 +10,7 @@ import {
     Header,
     Menu,
     Segment,
-    Dropdown
+    Dropdown,
 } from 'semantic-ui-react'
 
 export default function Homepage() {
@@ -31,7 +33,7 @@ export default function Homepage() {
         }} >
             <Grid className="admin" >
                 <Grid.Row>
-                    <Grid.Column width={5}
+                    <Grid.Column width={4}
                         style={{
                             color: 'black',
                             fontSize: '2em 4em',
@@ -39,23 +41,29 @@ export default function Homepage() {
                             padding: '4em 4em',
                         }}
                     >
-                        <Menu pointing vertical>
+                        <Menu pointing vertical style={{ padding: '2em' }}>
+                            <Menu.Item  >
+                                <Link to={`/activeAnnouncements`}>
+                                    Aktif İlanlar
+                                </Link>
+                            </Menu.Item>
                             <Menu.Item>
-                                <Dropdown pointing="top right" text="Cities">
-                                    <Dropdown.Menu>
+                                <Dropdown pointing="top right" text="Şehir Seç">
+                                    <Dropdown.Menu >
                                         {cities.map((city) => (
-                                            <Dropdown.Item>
+                                            <Dropdown.Item key={city.id}>
+                                                <Link to />
                                                 {city.name}
                                             </Dropdown.Item>
                                         ))}
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </Menu.Item>
-                            <Menu.Item>
-                                <Dropdown pointing="top right" text="Departments">
-                                    <Dropdown.Menu>
+                            <Menu.Item >
+                                <Dropdown pointing="top right" text="İş Pozisyonu Seç">
+                                    <Dropdown.Menu >
                                         {departments.map((department) => (
-                                            <Dropdown.Item>
+                                            <Dropdown.Item key={department.id}>
                                                 {department.name}
                                             </Dropdown.Item>
                                         ))}
@@ -64,26 +72,29 @@ export default function Homepage() {
                             </Menu.Item>
                         </Menu>
                     </Grid.Column>
-                    <Grid.Column width={10}>
+                    <Grid.Column width={12}>
                         <Header
                             as='h1'
-                            content='Find a job? / Looking for an employee?'
+                            content='Geleceğine doğru ilk adıma hoşgeldin'
                             inverted
                             style={{
                                 color: 'black',
                                 fontSize: '2em 4em',
                                 fontWeight: 'normal',
                                 padding: '2em 2em',
+                                marginLeft:'4em'
                             }}
                         />
                         <Header
                             as='h2'
-                            content='Want access to all the job announcements? / Publish your announcements?'
+                            content='İş mi  / Çalışan mı arıyorsun ?'
                             inverted
                             style={{
                                 color: 'black',
                                 fontSize: '1em 2em',
                                 fontWeight: 'normal',
+                                padding: '2em 2em',
+                                
                             }}
                         />
                         <Segment style={{ padding: '2em 0em' }} vertical>
@@ -93,14 +104,13 @@ export default function Homepage() {
                                     margin: '1em 1em'
                                 }}
                             >
-                                Join us
-                    <Icon name='right arrow' />
+                                Aramıza Katıl
+                                <Icon name='right arrow' />
                             </Button>
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-
 
         </div>
     )
