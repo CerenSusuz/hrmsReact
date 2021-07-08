@@ -13,6 +13,7 @@ import {
     Dropdown,
 } from 'semantic-ui-react'
 import EmployerService from '../services/employerService';
+import JobList from '../pages/JobList';
 
 export default function Homepage() {
     const [cities, setCities] = useState([])
@@ -35,20 +36,20 @@ export default function Homepage() {
     }, [])
 
     return (
-        <div style={{
-            background: 'rgb(228, 224, 247)'
-        }} >
-            <Grid className="admin" >
+        <div >
+            <Grid className="admin"
+                style={{
+                    background: 'rgb(228, 224, 247)'
+                }}  >
                 <Grid.Row>
                     <Grid.Column width={4}
                         style={{
                             color: 'black',
                             fontSize: '2em 4em',
                             fontWeight: 'normal',
-                            padding: '4em 4em',
                         }}
                     >
-                        <Menu pointing vertical style={{ padding: '2em' }}>
+                        <Menu pointing vertical >
                             <Menu.Item  >
                                 <Link to={`/activeAnnouncements`}>
                                     Aktif İlanlar
@@ -99,8 +100,8 @@ export default function Homepage() {
                                 color: 'black',
                                 fontSize: '2em 4em',
                                 fontWeight: 'normal',
-                                padding: '2em 2em',
-                                marginLeft:'4em'
+                                padding: '1em 1em',
+                                marginLeft: '1em'
                             }}
                         />
                         <Header
@@ -111,25 +112,21 @@ export default function Homepage() {
                                 color: 'black',
                                 fontSize: '1em 2em',
                                 fontWeight: 'normal',
-                                padding: '2em 2em',
-                                
+
                             }}
                         />
-                        <Segment style={{ padding: '2em 0em' }} vertical>
-
-                            <Button basic color='violet' size='huge'
-                                style={{
-                                    margin: '1em 1em'
-                                }}
-                            >
-                                Aramıza Katıl
-                                <Icon name='right arrow' />
+                        <Segment vertical>
+                            <Button inverted color='blue' size='huge'>
+                                <Link to='/register' >
+                                    Aramıza Katıl
+                                    <Icon name='right arrow' />
+                                </Link>
                             </Button>
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>
             </Grid>
-
+            <JobList></JobList>
         </div>
     )
 }
