@@ -16,6 +16,7 @@ import EmployerRegister from "../pages/Register/EmployerRegister";
 import JobSeekerRegister from "../pages/Register/JobSeekerRegister";
 import HrmsRegister from "../pages/Register/HrmsRegister";
 import CompanyNameJobList from "../pages/CompanyNameJobList";
+import FindJob from "../pages/FindJob";
 
 export default function Dashboard() {
     return (
@@ -35,8 +36,8 @@ export default function Dashboard() {
                 <Route path="/employerRegister" component={EmployerRegister} />
                 <Route path="/jobSeekerRegister" component={JobSeekerRegister} />
                 <Route path="/hrmsRegister" component={HrmsRegister} />
-                <Route path="/inCompnayNameJobs" component={CompanyNameJobList} />
-
+                <Route path="/inCompanyNameJobs" component={CompanyNameJobList} />
+                <Route path="/findJob" component={FindJob} />
             </Container>
         </div>
     );
