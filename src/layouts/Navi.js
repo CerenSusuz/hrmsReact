@@ -6,7 +6,7 @@ import { Container, Menu, Icon, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 export default function Navi() {
-    const [isAuthenticated, setIsAuthenticated] = useState(true)
+    const [isAuthenticated, setIsAuthenticated] = useState(false)
     const history = useHistory()
 
     function handleSignOut() {
