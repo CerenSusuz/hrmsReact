@@ -8,11 +8,11 @@
 
 <img src="https://github.com/CerenSusuz/hrmsReact/blob/main/src/assets/images/uml.png"> UML component diagram
 
-<img src="1.jpg">
+<img src="1.png">
 
-<img src="2.jpg">
+<img src="2.png">
 
-<img src="3.jpg">
+<img src="3.png">
 
 # Getting Started with Create React App
 
