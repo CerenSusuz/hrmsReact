@@ -21,6 +21,7 @@ import AllJobList from "../pages/AllJobList";
 import JobDetail from "../pages/JobDetail";
 import Register from "../pages/Register";
 import JobAnnouncementAdd from "../pages/JobAnnouncementAdd";
+import EmployerJobList from "../pages/EmployerJobList";
 
 export default function Dashboard() {
     return (
@@ -47,6 +48,7 @@ export default function Dashboard() {
                 <Route path="/inCityJobs/:id" component={CityJobList} />
                 <Route path="/inDepartmentJobs/:id" component={DepartmentJobList} />
                 <Route path="/inAppDeadLineJobs/:date" component={ApplicationDeadLineJobList} />
+                <Route path="/inEmployerJobs/:id" component={EmployerJobList} />
 
                 <Route path="/findJob" component={AllJobList} />
 

@@ -7,6 +7,9 @@ export default class JobAnnouncementService{
     getByActive(){
         return axios.get("http://localhost:8080/api/jobAnnouncements/getByActive")
     }
+    getByEmployer(id){
+        return axios.get("http://localhost:8080/api/jobAnnouncements/getByEmployer?id="+id)
+    }
     getByActiveAndApplicationDeadline(date){
         return axios.get("http://localhost:8080/api/jobAnnouncements/getByActiveAndApplicationDeadline?date="+date)
     }
