@@ -22,7 +22,7 @@ export default function Navi() {
         <div>
             <Menu fixed='top' inverted style={{ opacity: '.7' }} >
                 <Container>
-                <Menu.Item header >
+                    <Menu.Item header >
                         <Link to={`/`}>
                             <Image size='mini' src='https://cdn.pixabay.com/photo/2019/01/19/19/22/recruitment-3942378__340.jpg' />
                             HRMS
@@ -33,13 +33,19 @@ export default function Navi() {
                             Anasayfa
                         </Link>&nbsp;<Icon name='home' />
                     </Menu.Item>
-                    <Menu.Item > 
+                    <Menu.Item >
                         <Link to='/findjob'>
-                        İş bul <Icon name='search' />
+                            İş bul <Icon name='search' />
                         </Link>
-                        
-                       </Menu.Item>
-                    <Menu.Item as='a'> İlan Ver &nbsp;<Icon name='write' /> </Menu.Item>
+
+                    </Menu.Item>
+                    <Menu.Item >
+                        <Link to='/employerRegister'>
+                            İlan Ver
+                            <Icon name='write' />
+                        </Link>
+
+                    </Menu.Item>
                     <Menu.Item position='right'>
                         {isAuthenticated
                             ? <SignedIn signOut={handleSignOut} />
