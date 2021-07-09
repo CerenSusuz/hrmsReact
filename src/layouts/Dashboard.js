@@ -43,7 +43,7 @@ export default function Dashboard() {
                 <Route path="/hrmsRegister" component={HrmsRegister} />
 
                 <Route path="/inCompanyNameJobs/:companyName" component={CompanyNameJobList} />
-                <Route path="/cityJob" component={CityJobList} />
+                <Route path="/inCityJobs/:id" component={CityJobList} />
                 <Route path="/departmentJob" component={DepartmentJobList} />
 
                 <Route path="/findJob" component={AllJobList} />

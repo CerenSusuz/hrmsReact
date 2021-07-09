@@ -22,6 +22,8 @@ export default class JobAnnouncementService{
     getByEmployer(id){
         return axios.get("http://localhost:8080/api/jobAnnouncements/getByEmployer?id="+id)
     }
-
+    getByIsActiveTrueAndCity_Id(id){
+        return axios.get("http://localhost:8080/api/jobAnnouncements/getByIsActiveTrueAndCity_Id?id="+id)
+    }
 
 }
