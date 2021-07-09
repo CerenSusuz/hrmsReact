@@ -51,7 +51,7 @@ export default function JobAnnouncementList() {
                 {announcement.active === true
                 ? <Icon loading size='small' name='circle notch' color='green'/>
                 : <Icon size='small' color='red' name='dont' />
-              }
+                }
               </Table.Cell>
               <Table.Cell>
                 <Link>

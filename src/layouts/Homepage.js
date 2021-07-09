@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import CityService from "../services/cityService";
 import DepartmentService from "../services/departmentService";
+import JobAnnouncementService from "../services/jobAnnouncementService";
 import { Link } from 'react-router-dom';
-import KodlamaioTextInput from "../utilities/customFormControls/KodlamaioTextInput";
-import { Formik, Form } from "formik";
-import * as Yup from "yup";
 
 import {
     Button,
@@ -16,13 +14,13 @@ import {
     Dropdown,
 } from 'semantic-ui-react'
 import EmployerService from '../services/employerService';
-import JobList from '../pages/JobList';
+import AllJobList from '../pages/AllJobList';
 
 export default function Homepage() {
     const [cities, setCities] = useState([])
     const [departments, setDepartments] = useState([])
     const [employers, setemployers] = useState([])
-    const initialValues = { date: "" }
+    const [jobs, setjobs] = useState([])
 
     useEffect(() => {
         let cityService = new CityService()
@@ -39,51 +37,45 @@ export default function Homepage() {
         employerService.getEmployers().then(result => setemployers(result.data.data))
     }, [])
 
-    const schema = Yup.object({
-        date: Yup.date()
-    });
+    useEffect(() => {
+        let jobService = new JobAnnouncementService()
+        jobService.getJobAnnouncements().then(result => setjobs(result.data.data))
+    }, [])
 
     return (
         <div >
-                <Formik
-                    initialValues={initialValues}
-                    validationSchema={schema}
-                    onSubmit={(value) => {
-                        <Link to={`/register`}>
-                        </Link>
-                    }}
-                >
-                    <Form className="ui form">
-                        <KodlamaioTextInput name="date" placeholder="Tarih giriniz" />
-                        <Button inverted color='green' type='submit'>
-                            İlanları Getir
-                        </Button>
-                    </Form>
-                </Formik>
-
-            <Menu  >
+            <Menu  style={{marginBottom:'2em'}}>
+            <Menu.Item  >
+                    <Link to={`/findJob`} style={{color:'red'}}>
+                        Tüm İlanlar
+                    </Link>
+                </Menu.Item>
                 <Menu.Item  >
                     <Link to={`/activeAnnouncements`}>
                         Aktif İlanlar
                     </Link>
                 </Menu.Item>
                 <Menu.Item >
-                    <Dropdown pointing="top right" text="Tüm Firmalar">
+                    <Dropdown pointing="top right" text="Firma">
                         <Dropdown.Menu >
                             {employers.map((employer) => (
-                                <Dropdown.Item key={employer.id}>
-                                    {employer.companyName}
+                                <Dropdown.Item key={employer.companyName}>
+                                    <Link style={{ padding: '2em' }} to={`/inCompanyNameJobs/${employer.companyName}`}>
+                                        {
+                                            `${employer.companyName}`.toLocaleUpperCase()
+                                        }
+                                    </Link>
                                 </Dropdown.Item>
                             ))}
                         </Dropdown.Menu>
                     </Dropdown>
                 </Menu.Item>
                 <Menu.Item>
-                    <Dropdown pointing="top right" text="Şehir Seç">
+                    <Dropdown pointing="top right" text="Şehir">
                         <Dropdown.Menu >
                             {cities.map((city) => (
                                 <Dropdown.Item key={city.id}>
-                                    <Link to />
+                                    <Link key={city.id} to='/' />
                                     {city.name}
                                 </Dropdown.Item>
                             ))}
@@ -91,11 +83,22 @@ export default function Homepage() {
                     </Dropdown>
                 </Menu.Item>
                 <Menu.Item >
-                    <Dropdown pointing="top right" text="İş Pozisyonu Seç">
+                    <Dropdown pointing="top right" text="İş Pozisyonu">
                         <Dropdown.Menu >
                             {departments.map((department) => (
                                 <Dropdown.Item key={department.id}>
                                     {department.name}
+                                </Dropdown.Item>
+                            ))}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Menu.Item>
+                <Menu.Item >
+                    <Dropdown pointing="top right" text="Son Başvuru Tarihi">
+                        <Dropdown.Menu >
+                            {jobs.map((job) => (
+                                <Dropdown.Item key={job.id}>
+                                    {job.applicationDeadline}
                                 </Dropdown.Item>
                             ))}
                         </Dropdown.Menu>
@@ -144,7 +147,7 @@ export default function Homepage() {
                 </Grid.Row>
 
             </Grid>
-            <JobList></JobList>
+            <AllJobList></AllJobList>
         </div>
     )
 }

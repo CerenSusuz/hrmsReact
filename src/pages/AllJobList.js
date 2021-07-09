@@ -2,13 +2,14 @@ import React, { useState, useEffect } from 'react'
 import {
     Grid,
     Card,
-    Feed
+    Feed,
+    Icon
 } from 'semantic-ui-react'
 import JobAnnouncementService from "../services/jobAnnouncementService";
 import { Link } from 'react-router-dom';
 
 
-export default function JobList() {
+export default function AllJobList() {
     const [announcements, setAnnouncements] = useState([])
     useEffect(() => {
         let jobAnnouncementService = new JobAnnouncementService()
@@ -39,6 +40,14 @@ export default function JobList() {
                                                 Açık Pozisyon : {announcement.openPositions}
                                             </Feed.Summary>
                                             <br></br>
+                                            <Feed.Summary>
+                                                İlan Aktiflik Durumu:
+                                                {announcement.active === true
+                                                    ? <Icon loading size='small' name='circle notch' color='green' />
+                                                    : <Icon size='small' color='red' name='dont' />
+                                                }
+                                            </Feed.Summary>
+                                            <br></br>
                                             <Feed.Date>{`Yayınlanma Tarihi: ${announcement.releaseDate}`}</Feed.Date>
                                             <br></br>
                                             <Feed.Date>{`İlan ${announcement.applicationDeadline} tarihinde kapatılacaktır`}</Feed.Date>
@@ -59,3 +68,5 @@ export default function JobList() {
         </div>
     )
 }
+
+

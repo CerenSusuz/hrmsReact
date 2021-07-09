@@ -33,7 +33,12 @@ export default function Navi() {
                             Anasayfa
                         </Link>&nbsp;<Icon name='home' />
                     </Menu.Item>
-                    <Menu.Item as='a'> İş bul &nbsp;<Icon name='search' /></Menu.Item>
+                    <Menu.Item > 
+                        <Link to='/findjob'>
+                        İş bul <Icon name='search' />
+                        </Link>
+                        
+                       </Menu.Item>
                     <Menu.Item as='a'> İlan Ver &nbsp;<Icon name='write' /> </Menu.Item>
                     <Menu.Item position='right'>
                         {isAuthenticated
