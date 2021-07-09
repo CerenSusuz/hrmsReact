@@ -20,6 +20,7 @@ import ApplicationDeadLineJobList from "../pages/ApplicationDeadLineJobList";
 import AllJobList from "../pages/AllJobList";
 import JobDetail from "../pages/JobDetail";
 import Register from "../pages/Register";
+import JobAnnouncementAdd from "../pages/JobAnnouncementAdd";
 
 export default function Dashboard() {
     return (
@@ -50,6 +51,8 @@ export default function Dashboard() {
                 <Route path="/findJob" component={AllJobList} />
 
                 <Route path="/jobDetail/:id" component={JobDetail}/>
+
+                <Route path="/jobAdd" component={JobAnnouncementAdd}/>
 
             </Container>
         </div>
