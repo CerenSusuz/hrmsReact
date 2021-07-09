@@ -4,16 +4,15 @@ import JobAnnouncementService from '../services/jobAnnouncementService'
 import { Card, Image, Rating, Grid, Header, Feed } from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
-export default function DepartmentJobList() {
-
-    let { id } = useParams();
+export default function ApplicationDeadLineJobList() {
+    let { date } = useParams();
 
     const [jobs, setJobs] = useState([]);
 
     useEffect(() => {
         let jobAnnouncementService = new JobAnnouncementService()
-        jobAnnouncementService.getByIsActiveTrueAndCity_Id(id).then(result => setJobs(result.data.data))
-    }, [id])
+        jobAnnouncementService.getByApplicationDeadline(date).then(result => setJobs(result.data.data))
+    }, [date])
 
     console.log(jobs)
 
@@ -22,12 +21,13 @@ export default function DepartmentJobList() {
             {jobs.length > 0
                 ?
                 <Grid >
-                    {jobs
-                        .map(job => {
-                            return (
-                                <Grid.Row key={job.id}>
-                                    <Grid.Column >
-                                        <Card >
+                    <Grid.Row>
+                        {jobs
+                            .map(job => {
+                                return (
+
+                                    <Grid.Column width={5}>
+                                        <Card key={job.id}>
                                             <Card.Content>
                                                 <Header size='huge' style={{ color: 'green' }}>{`${job.employer.companyName}`.toLocaleUpperCase()}</Header>
                                                 <Image
@@ -58,9 +58,10 @@ export default function DepartmentJobList() {
                                             </Card.Content>
                                         </Card>
                                     </Grid.Column>
-                                </Grid.Row>
-                            )
-                        })}
+
+                                )
+                            })}
+                    </Grid.Row>
                 </Grid>
                 :
                 <Grid >

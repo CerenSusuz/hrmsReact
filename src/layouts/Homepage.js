@@ -46,12 +46,12 @@ export default function Homepage() {
         <div >
             <Menu style={{ marginBottom: '2em' }}>
                 <Menu.Item  >
-                    <Link to={`/findJob`} style={{ color: 'red' }}>
+                    <Link to={`/findJob`} style={{ color: 'blue' }}>
                         Tüm İlanlar
                     </Link>
                 </Menu.Item>
                 <Menu.Item  >
-                    <Link to={`/activeAnnouncements`}>
+                    <Link to={`/activeAnnouncements`} style={{ color: 'green' }}>
                         Aktif İlanlar
                     </Link>
                 </Menu.Item>
@@ -60,7 +60,8 @@ export default function Homepage() {
                         <Dropdown.Menu >
                             {employers.map((employer) => (
                                 <Dropdown.Item key={employer.companyName}>
-                                    <Link key={employer.companyName} to={`/inCompanyNameJobs/${employer.companyName}`}>
+                                    <Link to={`/inCompanyNameJobs/${employer.companyName}`}
+                                    >
                                         {
                                             `${employer.companyName}`.toLocaleUpperCase()
                                         }
@@ -75,7 +76,7 @@ export default function Homepage() {
                         <Dropdown.Menu >
                             {cities.map((city) => (
                                 <Dropdown.Item key={city.id}>
-                                    <Link key={city.id} to={`/inCityJobs/${city.id}`} >
+                                    <Link to={`/inCityJobs/${city.id}`} >
                                         {
                                             `${city.name}`.toLocaleUpperCase()
                                         }
@@ -90,7 +91,11 @@ export default function Homepage() {
                         <Dropdown.Menu >
                             {departments.map((department) => (
                                 <Dropdown.Item key={department.id}>
-                                    {department.name}
+                                    <Link to={`/inDepartmentJobs/${department.id}`} >
+                                        {
+                                            `${department.name}`.toLocaleUpperCase()
+                                        }
+                                    </Link>
                                 </Dropdown.Item>
                             ))}
                         </Dropdown.Menu>
@@ -101,7 +106,9 @@ export default function Homepage() {
                         <Dropdown.Menu >
                             {jobs.map((job) => (
                                 <Dropdown.Item key={job.id}>
-                                    {job.applicationDeadline}
+                                    <Link to={`/inAppDeadLineJobs/${job.applicationDeadline}`} >
+                                        {job.applicationDeadline}
+                                    </Link>
                                 </Dropdown.Item>
                             ))}
                         </Dropdown.Menu>
@@ -129,7 +136,7 @@ export default function Homepage() {
                         />
                         <Header
                             as='h2'
-                            content='İş mi  / Çalışan mı arıyorsun ?'
+                            content=''
                             inverted
                             style={{
                                 color: 'black',

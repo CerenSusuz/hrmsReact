@@ -25,5 +25,8 @@ export default class JobAnnouncementService{
     getByIsActiveTrueAndCity_Id(id){
         return axios.get("http://localhost:8080/api/jobAnnouncements/getByIsActiveTrueAndCity_Id?id="+id)
     }
+    getByIsActiveTrueAndDepartment_Id(id){
+        return axios.get("http://localhost:8080/api/jobAnnouncements/getByIsActiveTrueAndDepartment_Id?id="+id)
+    }
 
 }

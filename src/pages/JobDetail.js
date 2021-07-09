@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function HrmsHomePAge() {
+export default function JobDetail() {
     return (
         <div>
-            
+            DETAYLAR
         </div>
     )
 }

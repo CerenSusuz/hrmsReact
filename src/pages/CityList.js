@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Table } from 'semantic-ui-react'
 import CityService from "../services/cityService";
 
-
 export default function CityList() {
   const [cities, setCities] = useState([])
 

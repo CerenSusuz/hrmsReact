@@ -10,14 +10,15 @@ import DepartmentList from '../pages/DepartmentList'
 import JobAnnouncementList from '../pages/JobAnnouncementList'
 import EmployerList from "../pages/EmployerList";
 import ActiveJobList from "../pages/ActiveJobList";
-import ActiveGetDeadLineJobList from "../pages/ActiveGetDeadLineJobList";
 import CityJobList from "../pages/CityJobList";
 import DepartmentJobList from "../pages/DepartmentJobList";
 import EmployerRegister from "../pages/Register/EmployerRegister";
 import JobSeekerRegister from "../pages/Register/JobSeekerRegister";
 import HrmsRegister from "../pages/Register/HrmsRegister";
 import CompanyNameJobList from "../pages/CompanyNameJobList";
+import ApplicationDeadLineJobList from "../pages/ApplicationDeadLineJobList";
 import AllJobList from "../pages/AllJobList";
+import JobDetail from "../pages/JobDetail";
 import Register from "../pages/Register";
 
 export default function Dashboard() {
@@ -35,7 +36,6 @@ export default function Dashboard() {
                 <Route path="/jobAnnouncementList" component={JobAnnouncementList} />
 
                 <Route exact path="/activeAnnouncements" component={ActiveJobList} />
-                <Route path="/activeDeadLineAnnouncements/:date" component={ActiveGetDeadLineJobList} />
                 
                 <Route path="/employerRegister" component={EmployerRegister} />
                 <Route path="/jobSeekerRegister" component={JobSeekerRegister} />
@@ -44,9 +44,13 @@ export default function Dashboard() {
 
                 <Route path="/inCompanyNameJobs/:companyName" component={CompanyNameJobList} />
                 <Route path="/inCityJobs/:id" component={CityJobList} />
-                <Route path="/departmentJob" component={DepartmentJobList} />
+                <Route path="/inDepartmentJobs/:id" component={DepartmentJobList} />
+                <Route path="/inAppDeadLineJobs/:date" component={ApplicationDeadLineJobList} />
 
                 <Route path="/findJob" component={AllJobList} />
+
+                <Route path="/jobDetail/:id" component={JobDetail}/>
+
             </Container>
         </div>
     );
