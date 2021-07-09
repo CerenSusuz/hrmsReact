@@ -124,7 +124,7 @@ export default function Homepage() {
                     <Grid.Column>
                         <Header
                             as='h1'
-                            content='Geleceğine doğru ilk adıma hoşgeldin'
+                            content='Geleceğine doğru ilk adıma hoş geldin !!'
                             inverted
                             style={{
                                 color: 'black',
