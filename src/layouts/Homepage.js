@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import CityService from "../services/cityService";
 import DepartmentService from "../services/departmentService";
 import { Link } from 'react-router-dom';
+import KodlamaioTextInput from "../utilities/customFormControls/KodlamaioTextInput";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 
 import {
     Button,
@@ -19,6 +22,7 @@ export default function Homepage() {
     const [cities, setCities] = useState([])
     const [departments, setDepartments] = useState([])
     const [employers, setemployers] = useState([])
+    const initialValues = { date: "" }
 
     useEffect(() => {
         let cityService = new CityService()
@@ -35,63 +39,76 @@ export default function Homepage() {
         employerService.getEmployers().then(result => setemployers(result.data.data))
     }, [])
 
+    const schema = Yup.object({
+        date: Yup.date()
+    });
+
     return (
         <div >
+                <Formik
+                    initialValues={initialValues}
+                    validationSchema={schema}
+                    onSubmit={(value) => {
+                        <Link to={`/register`}>
+                        </Link>
+                    }}
+                >
+                    <Form className="ui form">
+                        <KodlamaioTextInput name="date" placeholder="Tarih giriniz" />
+                        <Button inverted color='green' type='submit'>
+                            İlanları Getir
+                        </Button>
+                    </Form>
+                </Formik>
+
+            <Menu  >
+                <Menu.Item  >
+                    <Link to={`/activeAnnouncements`}>
+                        Aktif İlanlar
+                    </Link>
+                </Menu.Item>
+                <Menu.Item >
+                    <Dropdown pointing="top right" text="Tüm Firmalar">
+                        <Dropdown.Menu >
+                            {employers.map((employer) => (
+                                <Dropdown.Item key={employer.id}>
+                                    {employer.companyName}
+                                </Dropdown.Item>
+                            ))}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Menu.Item>
+                <Menu.Item>
+                    <Dropdown pointing="top right" text="Şehir Seç">
+                        <Dropdown.Menu >
+                            {cities.map((city) => (
+                                <Dropdown.Item key={city.id}>
+                                    <Link to />
+                                    {city.name}
+                                </Dropdown.Item>
+                            ))}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Menu.Item>
+                <Menu.Item >
+                    <Dropdown pointing="top right" text="İş Pozisyonu Seç">
+                        <Dropdown.Menu >
+                            {departments.map((department) => (
+                                <Dropdown.Item key={department.id}>
+                                    {department.name}
+                                </Dropdown.Item>
+                            ))}
+                        </Dropdown.Menu>
+                    </Dropdown>
+                </Menu.Item>
+            </Menu>
+
             <Grid className="admin"
                 style={{
                     background: 'rgb(228, 224, 247)'
                 }}  >
                 <Grid.Row>
-                    <Grid.Column width={4}
-                        style={{
-                            color: 'black',
-                            fontSize: '2em 4em',
-                            fontWeight: 'normal',
-                        }}
-                    >
-                        <Menu pointing vertical >
-                            <Menu.Item  >
-                                <Link to={`/activeAnnouncements`}>
-                                    Aktif İlanlar
-                                </Link>
-                            </Menu.Item>
-                            <Menu.Item >
-                                <Dropdown pointing="top right" text="Tüm Firmalar">
-                                    <Dropdown.Menu >
-                                        {employers.map((employer) => (
-                                            <Dropdown.Item key={employer.id}>
-                                                {employer.companyName}
-                                            </Dropdown.Item>
-                                        ))}
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Menu.Item>
-                            <Menu.Item>
-                                <Dropdown pointing="top right" text="Şehir Seç">
-                                    <Dropdown.Menu >
-                                        {cities.map((city) => (
-                                            <Dropdown.Item key={city.id}>
-                                                <Link to />
-                                                {city.name}
-                                            </Dropdown.Item>
-                                        ))}
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Menu.Item>
-                            <Menu.Item >
-                                <Dropdown pointing="top right" text="İş Pozisyonu Seç">
-                                    <Dropdown.Menu >
-                                        {departments.map((department) => (
-                                            <Dropdown.Item key={department.id}>
-                                                {department.name}
-                                            </Dropdown.Item>
-                                        ))}
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </Menu.Item>
-                        </Menu>
-                    </Grid.Column>
-                    <Grid.Column width={12}>
+                    <Grid.Column>
                         <Header
                             as='h1'
                             content='Geleceğine doğru ilk adıma hoşgeldin'
@@ -100,8 +117,8 @@ export default function Homepage() {
                                 color: 'black',
                                 fontSize: '2em 4em',
                                 fontWeight: 'normal',
-                                padding: '1em 1em',
-                                marginLeft: '1em'
+                                padding: '2em 2em',
+                                margin: '1em'
                             }}
                         />
                         <Header
@@ -125,6 +142,7 @@ export default function Homepage() {
                         </Segment>
                     </Grid.Column>
                 </Grid.Row>
+
             </Grid>
             <JobList></JobList>
         </div>
