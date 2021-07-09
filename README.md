@@ -8,6 +8,12 @@
 
 <img src="https://github.com/CerenSusuz/hrmsReact/blob/main/src/assets/images/uml.png"> UML component diagram
 
+<img src="1.jpg">
+
+<img src="2.jpg">
+
+<img src="3.jpg">
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
