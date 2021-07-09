@@ -35,6 +35,12 @@ export default function SignedIn(props) {
                         <Dropdown.Item text="Profilim" icon="info" />
                         <Dropdown.Item ><Icon name='users' />İş Duyurularım</Dropdown.Item>
                         <Dropdown.Item text="Mesajlarım" icon="mail outline" />
+                        <Dropdown.Item >
+                            <Link style={{color:'red'}} to={`/jobAdd`}>
+                            <Icon name='write' />
+                            İlan Ver
+                            </Link>
+                        </Dropdown.Item>
                         <Dropdown.Item onClick={props.signOut} text="Log out" icon="sign-out" />
                     </Dropdown.Menu>
                 </Dropdown>
